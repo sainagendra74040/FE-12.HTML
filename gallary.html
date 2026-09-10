@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        /* Grid Structure */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+
+            /* Hover animation */
+            transition: transform 0.5s ease,
+                        filter 0.5s ease;
+        }
+
+        /* Dark overlay */
+        .gallery-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Text */
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2;
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.5s ease;
+        }
+
+        /* Hover Effects */
+        .gallery-item:hover img {
+            transform: scale(1.12);
+            filter: brightness(0.7);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 20px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Gallery</h1>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1015/600/400" alt="Mountain">
+            <div class="caption">Mountain</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1016/600/400" alt="Nature">
+            <div class="caption">Nature</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1025/600/400" alt="Dog">
+            <div class="caption">Animals</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1035/600/400" alt="Beach">
+            <div class="caption">Beach</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1043/600/400" alt="Forest">
+            <div class="caption">Forest</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1050/600/400" alt="City">
+            <div class="caption">City</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/106/600/400" alt="River">
+            <div class="caption">River</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1074/600/400" alt="Landscape">
+            <div class="caption">Landscape</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
